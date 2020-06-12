@@ -1,4 +1,4 @@
-module telegram-bot-api
+module github.com/h774211/telegram-bot-api
 
 require (
 	github.com/go-telegram-bot-api/telegram-bot-api v4.6.4+incompatible // indirect
