@@ -434,6 +434,8 @@ func (bot *BotAPI) GetUpdatesChan(config UpdateConfig) UpdatesChannel {
 					ch <- update
 				}
 			}
+
+			errorCount = 0
 		}
 	}()
 
