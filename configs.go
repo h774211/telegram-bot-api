@@ -771,6 +771,7 @@ type UpdateConfig struct {
 	Offset  int
 	Limit   int
 	Timeout int
+	RetryTime int
 }
 
 func (UpdateConfig) method() string {

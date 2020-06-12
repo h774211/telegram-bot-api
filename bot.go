@@ -407,6 +407,7 @@ func (bot *BotAPI) GetUpdatesChan(config UpdateConfig) UpdatesChannel {
 	ch := make(chan Update, bot.Buffer)
 
 	go func() {
+		var errorCount = 0
 		for {
 			select {
 			case <-bot.shutdownChannel:
@@ -419,7 +420,11 @@ func (bot *BotAPI) GetUpdatesChan(config UpdateConfig) UpdatesChannel {
 				log.Println(err)
 				log.Println("Failed to get updates, retrying in 3 seconds...")
 				time.Sleep(time.Second * 3)
-
+				errorCount++
+				if errorCount >= config.RetryTime {
+					close(ch)
+					return
+				}
 				continue
 			}
 
