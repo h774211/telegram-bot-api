@@ -1,2 +1,0 @@
-# github.com/technoweenie/multipartstreamer v1.0.1
-github.com/technoweenie/multipartstreamer
